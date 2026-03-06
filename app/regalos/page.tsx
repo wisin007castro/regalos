@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma'
 import RegaloCard from '@/components/RegalosCard'
 import Link from 'next/link'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 export default async function RegalosPage() {
   const regalos = await prisma.regalo.findMany({
