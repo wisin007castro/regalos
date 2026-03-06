@@ -6,8 +6,9 @@ export const revalidate = 60
 
 export default async function RegalosPage() {
   const regalos = await prisma.regalo.findMany({
-    where: { verificado: true },
+    where: { verificado: true, eliminado: false },
     orderBy: { fechaCreacion: 'desc' },
+    include: { opcion: true },
   })
 
   return (
