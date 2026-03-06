@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { auth } from '@/auth'
-import { writeFile, unlink } from 'fs/promises'
-import path from 'path'
+import { uploadBuffer, deleteImage } from '@/lib/cloudinary'
 
 export async function PATCH(
   req: NextRequest,
@@ -21,24 +20,19 @@ export async function PATCH(
     const qrFile = formData.get('qrFile') as File | null
 
     let qrUrl: string | undefined = undefined
+    let qrPublicId: string | undefined = undefined
 
     if (qrFile && qrFile.size > 0) {
-      // Borrar QR anterior si existe
       const anterior = await prisma.opcionRegalo.findUnique({
         where: { id: parseInt(id) },
-        select: { qrUrl: true },
+        select: { qrPublicId: true },
       })
-      if (anterior?.qrUrl) {
-        const oldPath = path.join(process.cwd(), 'public', anterior.qrUrl)
-        await unlink(oldPath).catch(() => null)
-      }
+      if (anterior?.qrPublicId) await deleteImage(anterior.qrPublicId)
 
       const buffer = Buffer.from(await qrFile.arrayBuffer())
-      const ext = qrFile.name.split('.').pop()
-      const filename = `qr-opcion-${id}-${Date.now()}.${ext}`
-      const filepath = path.join(process.cwd(), 'public', 'uploads', filename)
-      await writeFile(filepath, buffer)
-      qrUrl = `/uploads/${filename}`
+      const result = await uploadBuffer(buffer, 'cumpleanos/qr')
+      qrUrl = result.url
+      qrPublicId = result.publicId
     }
 
     const opcion = await prisma.opcionRegalo.update({
@@ -46,7 +40,7 @@ export async function PATCH(
       data: {
         ...(nombre?.trim() && { nombre: nombre.trim() }),
         ...(descripcion !== null && { descripcion: descripcion.trim() }),
-        ...(qrUrl !== undefined && { qrUrl }),
+        ...(qrUrl !== undefined && { qrUrl, qrPublicId }),
         pagoUrl: pagoUrl?.trim() || null,
       },
     })

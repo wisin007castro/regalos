@@ -30,6 +30,7 @@ model OpcionRegalo {
   montoBOB    Float?
   montoUSD    Float?
   qrUrl       String?
+  qrPublicId  String?
   pagoUrl     String?
   orden       Int      @default(0)
   activo      Boolean  @default(true)
@@ -39,6 +40,7 @@ model OpcionRegalo {
 model Foto {
   id        Int      @id @default(autoincrement())
   url       String
+  publicId  String?
   titulo    String?
   createdAt DateTime @default(now())
 }

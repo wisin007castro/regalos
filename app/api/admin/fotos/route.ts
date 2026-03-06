@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { auth } from '@/auth'
-import { writeFile } from 'fs/promises'
-import path from 'path'
+import { uploadBuffer } from '@/lib/cloudinary'
 
 export async function GET() {
   const session = await auth()
@@ -26,14 +25,12 @@ export async function POST(req: NextRequest) {
     }
 
     const buffer = Buffer.from(await archivo.arrayBuffer())
-    const ext = archivo.name.split('.').pop()
-    const filename = `foto-${Date.now()}.${ext}`
-    const filepath = path.join(process.cwd(), 'public', 'uploads', 'fotos', filename)
-    await writeFile(filepath, buffer)
+    const { url, publicId } = await uploadBuffer(buffer, 'cumpleanos/fotos')
 
     const foto = await prisma.foto.create({
       data: {
-        url: `/uploads/fotos/${filename}`,
+        url,
+        publicId,
         titulo: titulo?.trim() || null,
       },
     })

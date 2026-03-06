@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { auth } from '@/auth'
-import { unlink } from 'fs/promises'
-import path from 'path'
+import { deleteImage } from '@/lib/cloudinary'
 
 export async function DELETE(
   _req: NextRequest,
@@ -17,8 +16,7 @@ export async function DELETE(
     const foto = await prisma.foto.findUnique({ where: { id: parseInt(id) } })
     if (!foto) return NextResponse.json({ error: 'No encontrada' }, { status: 404 })
 
-    const filepath = path.join(process.cwd(), 'public', foto.url)
-    await unlink(filepath).catch(() => null)
+    if (foto.publicId) await deleteImage(foto.publicId)
 
     await prisma.foto.delete({ where: { id: parseInt(id) } })
 
