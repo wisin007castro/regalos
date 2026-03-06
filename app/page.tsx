@@ -1,65 +1,74 @@
-import Image from "next/image";
+import Link from 'next/link'
+import RegaloForm from '@/components/RegalosForm'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <div className="text-center mb-12">
+        <h1 className="text-5xl font-bold text-pink-600 mb-4">
+          🎈 ¡Felices 13 Años! 🎈
+        </h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Ayúdanos a celebrar este día tan especial con tus buenos deseos y regalos virtuales
+        </p>
+      </div>
+
+      {/* Decoración */}
+      <div className="flex justify-center gap-4 mb-12 text-4xl">
+        <span>🎂</span>
+        <span>🎁</span>
+        <span>🎈</span>
+        <span>🎉</span>
+        <span>🤗</span>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Formulario de Regalos */}
+        <div className="bg-white rounded-xl shadow-xl p-8">
+          <h2 className="text-3xl font-bold text-center mb-6 text-pink-500">
+            Envía tu Regalo
+          </h2>
+          <RegaloForm />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Información y últimos regalos */}
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl shadow-xl p-8">
+            <h2 className="text-2xl font-bold mb-4 text-purple-600">
+              ✨ ¿Cómo funciona?
+            </h2>
+            <ul className="space-y-3 text-gray-600">
+              <li className="flex items-center gap-3">
+                <span className="text-pink-500">1️⃣</span>
+                Elige entre un abrazo virtual o una torta virtual
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-pink-500">2️⃣</span>
+                Escribe tu mensaje de cumpleaños
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-pink-500">3️⃣</span>
+                Si eliges torta, puedes aportar en Bs o USD
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-pink-500">4️⃣</span>
+                Tu regalo aparecerá después de verificado
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl shadow-xl p-8 text-white text-center">
+            <p className="text-2xl mb-2">¡Mira los regalos que ya enviaron!</p>
+            <Link 
+              href="/regalos" 
+              className="inline-block bg-white text-pink-500 px-6 py-3 rounded-lg font-bold hover:bg-pink-100 transition mt-4"
+            >
+              Ver Todos los Regalos 🎁
+            </Link>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
-  );
+  )
 }

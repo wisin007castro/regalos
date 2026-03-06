@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Regalo {
+  id            Int      @id @default(autoincrement())
+  nombre        String
+  mensaje       String
+  tipoRegalo    String   // "abrazo" o "torta"
+  moneda        String   // "BOB" o "USD"
+  monto         Float?
+  verificado    Boolean  @default(false)
+  fechaCreacion DateTime @default(now())
+  fechaVerificacion DateTime?
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
