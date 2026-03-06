@@ -7,7 +7,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-pink-600 mb-4">
-          🎈 ¡Felices 13 Años! 🎈
+          🎈 ¡Felices 13 Años Nijal! 🎈
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Ayúdanos a celebrar este día tan especial con tus buenos deseos y regalos virtuales
@@ -41,7 +41,7 @@ export default function HomePage() {
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-center gap-3">
                 <span className="text-pink-500">1️⃣</span>
-                Elige entre un abrazo virtual o una torta virtual
+                Elige entre un abrazo virtual o una regalo
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-pink-500">2️⃣</span>
@@ -49,7 +49,7 @@ export default function HomePage() {
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-pink-500">3️⃣</span>
-                Si eliges torta, puedes aportar en Bs o USD
+                Si eliges un regalo, puedes enviar el regalo por QR
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-pink-500">4️⃣</span>
@@ -64,7 +64,7 @@ export default function HomePage() {
               href="/regalos" 
               className="inline-block bg-white text-pink-500 px-6 py-3 rounded-lg font-bold hover:bg-pink-100 transition mt-4"
             >
-              Ver Todos los Regalos 🎁
+              Ver Todos los Regalos 🎁 y buenos deseos para Nijal 🤗
             </Link>
           </div>
         </div>

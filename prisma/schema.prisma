@@ -8,15 +8,39 @@ datasource db {
 }
 
 model Regalo {
-  id            Int      @id @default(autoincrement())
+  id            Int           @id @default(autoincrement())
   nombre        String
   mensaje       String
-  tipoRegalo    String   // "abrazo" o "torta"
-  moneda        String   // "BOB" o "USD"
+  moneda        String        // "BOB" o "USD"
   monto         Float?
-  verificado    Boolean  @default(false)
-  fechaCreacion DateTime @default(now())
+  verificado    Boolean       @default(false)
+  eliminado     Boolean       @default(false)
+  fechaCreacion DateTime      @default(now())
   fechaVerificacion DateTime?
+  opcionId      Int?
+  opcion        OpcionRegalo? @relation(fields: [opcionId], references: [id])
+}
+
+model OpcionRegalo {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  emoji       String
+  tipo        String   // "abrazo" o "torta"
+  descripcion String
+  montoBOB    Float?
+  montoUSD    Float?
+  qrUrl       String?
+  pagoUrl     String?
+  orden       Int      @default(0)
+  activo      Boolean  @default(true)
+  regalos     Regalo[]
+}
+
+model Foto {
+  id        Int      @id @default(autoincrement())
+  url       String
+  titulo    String?
+  createdAt DateTime @default(now())
 }
 
 model Admin {
