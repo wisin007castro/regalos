@@ -47,7 +47,7 @@ const OPCIONES = [
     descripcion: 'Para distraerme un rato',
     montoBOB: 30,
     montoUSD: 42,
-    orden: 4,
+    orden: 5,
   },
   {
     nombre: 'Libro',
@@ -56,7 +56,7 @@ const OPCIONES = [
     descripcion: 'Un libro para matar el aburrimiento',
     montoBOB: 130,
     montoUSD: 42,
-    orden: 4,
+    orden: 6,
   },
 ]
 
