@@ -82,7 +82,7 @@ export default function AdminOpcionesList() {
       {notif && <Notificacion tipo={notif.tipo} mensaje={notif.mensaje} onClose={cerrarNotif} />}
       <div className="space-y-3">
         {opciones
-          .filter((o) => o.tipo === 'torta')
+          .filter((o) => o.tipo !== 'abrazo')
           .map((opcion) => (
             <div key={opcion.id} className="bg-slate-900 border border-slate-700 rounded-xl p-4">
               <div className="flex justify-between items-center mb-3">
