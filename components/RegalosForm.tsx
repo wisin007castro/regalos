@@ -257,7 +257,7 @@ export default function RegaloForm() {
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Ej: Tia Maria"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-900"
             />
           </div>
 
@@ -269,7 +269,7 @@ export default function RegaloForm() {
               onChange={(e) => setMensaje(e.target.value)}
               placeholder="Escribe tus deseos de cumpleanos..."
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none text-gray-900"
             />
           </div>
 
