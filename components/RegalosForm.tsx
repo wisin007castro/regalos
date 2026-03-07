@@ -224,12 +224,21 @@ export default function RegaloForm() {
                 <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 rounded-lg p-4 space-y-2">
                   <p className="text-sm font-semibold text-blue-700 dark:text-blue-400">Envio de regalo por QR:</p>
                   <p className="text-xs text-blue-600 dark:text-blue-500">Escanea el QR para pagar:</p>
-                  <div className="flex justify-center">
+                  <div className="flex flex-col items-center gap-2">
                     <img
                       src={opcionSeleccionada.qrUrl}
                       alt="QR de pago"
                       className="w-40 h-40 object-contain rounded border border-blue-200 bg-white p-1"
                     />
+                    <a
+                      href={opcionSeleccionada.qrUrl}
+                      download="qr-pago.png"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                    >
+                      ⬇️ Descargar QR
+                    </a>
                   </div>
                 </div>
               )}
