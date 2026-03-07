@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="bg-pink-500 text-white p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold flex items-center gap-2">
-          Cumpleanos 13
+          Cumpleaños 14
         </Link>
         <div className="flex items-center gap-6">
           <Link href="/" className="hover:text-pink-200 transition">Inicio</Link>
