@@ -18,7 +18,7 @@ export default function HomePage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <div className="bg-white dark:bg-gray-900 dark:border dark:border-purple-900/40 rounded-xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-900 dark:border dark:border-fuchsia-900/40 rounded-xl shadow-xl p-8">
           <h2 className="text-3xl font-bold text-center mb-6 text-pink-500 dark:text-pink-400">
             Envía tu Regalo
           </h2>
@@ -26,7 +26,7 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-6">
-          <div className="bg-white dark:bg-gray-900 dark:border dark:border-purple-900/40 rounded-xl shadow-xl p-8">
+          <div className="bg-white dark:bg-gray-900 dark:border dark:border-fuchsia-900/40 rounded-xl shadow-xl p-8">
             <h2 className="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400">
               ✨ ¿Cómo funciona?
             </h2>
@@ -38,7 +38,7 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-r from-pink-500 to-purple-500 dark:from-pink-700 dark:to-purple-800 rounded-xl shadow-xl p-8 text-white text-center">
+          <div className="bg-gradient-to-r from-pink-500 to-purple-500 dark:from-pink-700 dark:to-fuchsia-800 rounded-xl shadow-xl p-8 text-white text-center">
             <p className="text-2xl mb-2">¡Mira los regalos que ya enviaron!</p>
             <Link href="/regalos" className="inline-block bg-white text-pink-500 px-6 py-3 rounded-lg font-bold hover:bg-pink-100 transition mt-4">
               Ver Todos los Regalos 🎁 y buenos deseos para Nijal 🤗
