@@ -130,8 +130,8 @@ export default function RegaloForm() {
               type="button"
               onClick={() => setMoneda(m)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${moneda === m
-                  ? 'bg-purple-500 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                ? 'bg-purple-500 text-white'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
             >
               {m === 'BOB' ? 'Bs (Bolivianos)' : '$ (Dolares)'}
@@ -227,6 +227,15 @@ export default function RegaloForm() {
                       alt="QR de pago"
                       className="w-40 h-40 object-contain rounded border border-blue-200 bg-white p-1"
                     />
+                    <a
+                      href={opcionSeleccionada.qrUrl}
+                      download="qr-pago.png"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                    >
+                      ⬇️ Descargar QR
+                    </a>
                   </div>
                 </div>
               )}
