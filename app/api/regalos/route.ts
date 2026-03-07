@@ -18,6 +18,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Campos requeridos faltantes' }, { status: 400 })
   }
 
+  // Prevenir doble registro: mismo nombre + opción en los últimos 30 segundos
+  const reciente = await prisma.regalo.findFirst({
+    where: {
+      nombre: nombre.trim(),
+      opcionId: parseInt(opcionId),
+      fechaCreacion: { gte: new Date(Date.now() - 30000) },
+    },
+  })
+  if (reciente) {
+    return NextResponse.json({ error: 'Regalo ya registrado recientemente' }, { status: 409 })
+  }
+
   const sinCosto = !monto || parseFloat(monto) === 0
 
   const regalo = await prisma.regalo.create({

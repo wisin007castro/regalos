@@ -17,6 +17,9 @@ export async function PATCH(
     const nombre = formData.get('nombre') as string | null
     const descripcion = formData.get('descripcion') as string | null
     const pagoUrl = formData.get('pagoUrl') as string | null
+    const emoji = formData.get('emoji') as string | null
+    const montoBOB = formData.get('montoBOB') as string | null
+    const montoUSD = formData.get('montoUSD') as string | null
     const qrFile = formData.get('qrFile') as File | null
 
     let qrUrl: string | undefined = undefined
@@ -40,6 +43,9 @@ export async function PATCH(
       data: {
         ...(nombre?.trim() && { nombre: nombre.trim() }),
         ...(descripcion !== null && { descripcion: descripcion.trim() }),
+        ...(emoji?.trim() && { emoji: emoji.trim() }),
+        ...(montoBOB !== null && montoBOB !== '' && { montoBOB: parseFloat(montoBOB) }),
+        ...(montoUSD !== null && montoUSD !== '' && { montoUSD: parseFloat(montoUSD) }),
         ...(qrUrl !== undefined && { qrUrl, qrPublicId }),
         pagoUrl: pagoUrl?.trim() || null,
       },
