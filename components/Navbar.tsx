@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
   const { data: session } = useSession()
@@ -18,22 +19,26 @@ export default function Navbar() {
           Cumpleaños 14
         </Link>
 
-        {/* Botón hamburguesa (mobile) */}
-        <button
-          className="sm:hidden p-2 rounded-lg hover:bg-pink-600 transition"
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          aria-label="Menú"
-        >
-          <div className="w-5 h-0.5 bg-white mb-1" />
-          <div className="w-5 h-0.5 bg-white mb-1" />
-          <div className="w-5 h-0.5 bg-white" />
-        </button>
+        {/* Botón hamburguesa + toggle (mobile) */}
+        <div className="flex sm:hidden items-center gap-1">
+          <ThemeToggle />
+          <button
+            className="p-2 rounded-lg hover:bg-pink-600 transition"
+            onClick={() => setMenuAbierto(!menuAbierto)}
+            aria-label="Menú"
+          >
+            <div className="w-5 h-0.5 bg-white mb-1" />
+            <div className="w-5 h-0.5 bg-white mb-1" />
+            <div className="w-5 h-0.5 bg-white" />
+          </button>
+        </div>
 
         {/* Links (desktop) */}
         <div className="hidden sm:flex items-center gap-6">
           <Link href="/" className="hover:text-pink-200 transition">Inicio</Link>
           <Link href="/regalos" className="hover:text-pink-200 transition">Ver Regalos</Link>
           <Link href="/fotos" className="hover:text-pink-200 transition">Fotos</Link>
+          <ThemeToggle />
           {session ? (
             <Link
               href="/admin"
