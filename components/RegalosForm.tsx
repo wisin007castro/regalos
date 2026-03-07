@@ -129,11 +129,10 @@ export default function RegaloForm() {
               key={m}
               type="button"
               onClick={() => setMoneda(m)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${
-                moneda === m
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${moneda === m
                   ? 'bg-purple-500 text-white'
                   : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               {m === 'BOB' ? 'Bs (Bolivianos)' : '$ (Dolares)'}
             </button>
@@ -162,9 +161,8 @@ export default function RegaloForm() {
                     <tr
                       key={opcion.id}
                       onClick={() => setOpcionSeleccionada(opcion)}
-                      className={`cursor-pointer transition ${
-                        i % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/60'
-                      } ${seleccionada ? '!bg-pink-50 dark:!bg-pink-950/50 ring-2 ring-inset ring-pink-400' : 'hover:bg-pink-50/50 dark:hover:bg-pink-950/20'}`}
+                      className={`cursor-pointer transition ${i % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/60'
+                        } ${seleccionada ? '!bg-pink-50 dark:!bg-pink-950/50 ring-2 ring-inset ring-pink-400' : 'hover:bg-pink-50/50 dark:hover:bg-pink-950/20'}`}
                     >
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
@@ -184,9 +182,8 @@ export default function RegaloForm() {
                       </td>
                       <td className="px-3 py-3 text-center">
                         <div
-                          className={`w-5 h-5 rounded-full border-2 mx-auto flex items-center justify-center ${
-                            seleccionada ? 'border-pink-500 bg-pink-500' : 'border-gray-300'
-                          }`}
+                          className={`w-5 h-5 rounded-full border-2 mx-auto flex items-center justify-center ${seleccionada ? 'border-pink-500 bg-pink-500' : 'border-gray-300'
+                            }`}
                         >
                           {seleccionada && <div className="w-2 h-2 rounded-full bg-white" />}
                         </div>
@@ -223,7 +220,7 @@ export default function RegaloForm() {
               {moneda === 'BOB' && opcionSeleccionada.qrUrl && (
                 <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 rounded-lg p-4 space-y-2">
                   <p className="text-sm font-semibold text-blue-700 dark:text-blue-400">Envio de regalo por QR:</p>
-                  <p className="text-xs text-blue-600 dark:text-blue-500">Escanea el QR para pagar:</p>
+                  <p className="text-xs text-blue-600 dark:text-blue-500">Escanea o descarga el QR para pagar:</p>
                   <div className="flex justify-center">
                     <img
                       src={opcionSeleccionada.qrUrl}
