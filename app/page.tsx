@@ -1,4 +1,4 @@
-import Link from 'next/link'
+iimport Link from 'next/link'
 import RegaloForm from '@/components/RegalosForm'
 
 export default function HomePage() {
@@ -7,7 +7,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-pink-600 mb-4">
-          🎈 ¡Felices 13 Años Nijal! 🎈
+          🎈 ¡Felices 14 Años Nijal! 🎈
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Ayúdanos a celebrar este día tan especial con tus buenos deseos y regalos virtuales
