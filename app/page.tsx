@@ -1,4 +1,4 @@
-iimport Link from 'next/link'
+import Link from 'next/link'
 import RegaloForm from '@/components/RegalosForm'
 
 export default function HomePage() {
