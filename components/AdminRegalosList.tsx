@@ -109,8 +109,8 @@ export default function AdminRegalosList() {
 
         <div className="grid gap-3">
           {regalosFiltrados.map((regalo) => (
-            <div key={regalo.id} className="bg-slate-900 border border-slate-700 p-4 rounded-xl">
-              <div className="flex justify-between items-start gap-4">
+          <div key={regalo.id} className="bg-slate-900 border border-slate-700 p-4 rounded-xl">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <span className="text-xl">{regalo.opcion?.emoji ?? '🎁'}</span>
@@ -124,8 +124,8 @@ export default function AdminRegalosList() {
                       {regalo.verificado ? 'Verificado' : 'Pendiente'}
                     </span>
                   </div>
-                  <p className="text-slate-400 text-sm mb-1 truncate">{regalo.mensaje}</p>
-                  {regalo.opcion?.tipo === 'torta' && regalo.monto && (
+                  <p className="text-slate-400 text-sm mb-1 break-words">{regalo.mensaje}</p>
+                  {regalo.monto != null && (
                     <p className="text-sm font-semibold text-emerald-400">
                       {regalo.moneda === 'BOB' ? 'Bs' : '$'} {regalo.monto}
                     </p>
@@ -134,7 +134,7 @@ export default function AdminRegalosList() {
                     {new Date(regalo.fechaCreacion).toLocaleString()}
                   </p>
                 </div>
-                <div className="flex gap-2 flex-shrink-0">
+                <div className="flex gap-2 flex-shrink-0 flex-wrap">
                   <button
                     onClick={() => verificarRegalo(regalo.id, regalo.verificado)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
