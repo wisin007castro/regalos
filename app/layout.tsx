@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <SessionProviderWrapper>
           <Navbar />
-          <main className="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50 dark:from-purple-950 dark:to-gray-950">
+          <main className="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50 dark:from-fuchsia-950 dark:to-gray-950">
             {children}
           </main>
         </SessionProviderWrapper>

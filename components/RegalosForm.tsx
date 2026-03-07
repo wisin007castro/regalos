@@ -234,7 +234,7 @@ export default function RegaloForm() {
                 </div>
               )}
               {moneda === 'USD' && opcionSeleccionada.pagoUrl && (
-                <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 rounded-lg p-4">
+                <div className="bg-purple-50 dark:bg-fuchsia-950/30 border border-purple-200 dark:border-fuchsia-900/50 rounded-lg p-4">
                   <p className="text-sm font-semibold text-purple-700 dark:text-purple-400 mb-3">Enlace de pago:</p>
                   <a
                     href={opcionSeleccionada.pagoUrl}
