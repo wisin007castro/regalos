@@ -39,11 +39,11 @@ export default function RegaloForm() {
     setError('')
 
     const monto =
-      opcionSeleccionada.tipo === 'torta'
-        ? moneda === 'BOB'
+      opcionSeleccionada.tipo === 'abrazo' || (!opcionSeleccionada.montoBOB && !opcionSeleccionada.montoUSD)
+        ? null
+        : moneda === 'BOB'
           ? opcionSeleccionada.montoBOB
           : opcionSeleccionada.montoUSD
-        : null
 
     try {
       const res = await fetch('/api/regalos', {
@@ -53,7 +53,7 @@ export default function RegaloForm() {
           nombre,
           mensaje,
           opcionId: opcionSeleccionada.id,
-          moneda: opcionSeleccionada.tipo === 'torta' ? moneda : 'BOB',
+          moneda: moneda,
           monto,
         }),
       })
